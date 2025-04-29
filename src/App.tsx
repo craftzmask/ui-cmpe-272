@@ -11,6 +11,11 @@ import AIChatInterviewPage from './pages/interview/chat-interview';
 import AIInterviewPracticePage from './pages/interview/practice';
 import UploadResumePage from './pages/resume/upload';
 import ResumeAnalysisPage from './pages/resume/analysis';
+import DashboardPage from './pages/dashboard';
+import JobsPage from './pages/jobs';
+import JobSuggestionPage from './pages/jobs/suggestions';
+import CareerPathsPage from './pages/career-paths';
+import CareerDetailsPage from './pages/career-paths/career-details';
 
 // Layouts
 import MainLayout from './layouts/main-layout';
@@ -42,6 +47,16 @@ const App: React.FC = () => {
         </Route>
         
         {/* Dashboard routes */}
+        <Route exact path="/dashboard">
+          <DashboardLayout>
+            <DashboardPage />
+          </DashboardLayout>
+        </Route>
+        <Route path="/jobs">
+          <DashboardLayout>
+            <JobsPage />
+          </DashboardLayout>
+        </Route>
         <Route path="/profile">
           <DashboardLayout>
             <UserProfilePage />
@@ -65,6 +80,21 @@ const App: React.FC = () => {
         <Route path="/resume/analysis">
           <DashboardLayout>
             <ResumeAnalysisPage />
+          </DashboardLayout>
+        </Route>
+        <Route path="/jobs/suggestions">
+          <DashboardLayout>
+            <JobSuggestionPage />
+          </DashboardLayout>
+        </Route>
+        <Route path="/career-paths" exact>
+          <DashboardLayout>
+            <CareerPathsPage />
+          </DashboardLayout>
+        </Route>
+        <Route path="/career-paths/:id">
+          <DashboardLayout>
+            <CareerDetailsPage />
           </DashboardLayout>
         </Route>
       </Switch>
